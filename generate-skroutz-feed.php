@@ -27,7 +27,7 @@ function xmlfeed_generate_xml() {
 
     // Παίρνουμε τις ρυθμίσεις
     $selected_category_ids = explode(',', Configuration::get('XMLFEED_CATEGORY_IDS'));
-    $excluded_ids = array_map('intval', explode(',', Configuration::get('XMLFEED_EXCLUDE_IDS')));
+	$excluded_ids = array_map('intval', explode(',', Configuration::get('XMLFEEDMANAGER_EXCLUDED_IDS_SKROUTZ')));
     $included_fields = explode(',', Configuration::get('XMLFEED_FEED_FIELDS'));
     $clean_html = Configuration::get('XMLFEED_CLEAN_HTML');
 

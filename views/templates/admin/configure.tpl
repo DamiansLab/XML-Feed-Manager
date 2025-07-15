@@ -4,11 +4,28 @@
 
   <form method="post">
     <!-- Πεδίο εξαιρούμενων προϊόντων -->
-    <div class="form-group">
-      <label>Εξαιρούμενα ID Προϊόντων (διαχωρισμένα με κόμμα)</label>
-      <input type="text" name="XMLFEED_EXCLUDE_IDS" class="form-control"
-             value="{$excluded_ids|escape:'htmlall':'UTF-8'}" />
-    </div>
+    <!-- Νέα Πεδία Εξαιρέσεων με Select -->
+<div class="form-group">
+  <label for="excluded_ids_skroutz">Εξαιρούμενα Προϊόντα για Skroutz</label>
+  <select name="excluded_ids_skroutz[]" id="excluded_ids_skroutz" multiple class="select2 form-control">
+    {foreach from=$product_options item=product}
+      <option value="{$product.id_product}" {if in_array($product.id_product, $excluded_ids_skroutz)}selected{/if}>
+        [{$product.id_product}] {$product.name|escape:'html':'UTF-8'}
+      </option>
+    {/foreach}
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="excluded_ids_google">Εξαιρούμενα Προϊόντα για Google</label>
+  <select name="excluded_ids_google[]" id="excluded_ids_google" multiple class="select2 form-control">
+    {foreach from=$product_options item=product}
+      <option value="{$product.id_product}" {if in_array($product.id_product, $excluded_ids_google)}selected{/if}>
+        [{$product.id_product}] {$product.name|escape:'html':'UTF-8'}
+      </option>
+    {/foreach}
+  </select>
+</div>
 
     <!-- Δέντρο επιλογής κατηγοριών -->
     <div class="form-group">
@@ -58,6 +75,22 @@
         Δημιουργία Google XML
     </button>
   </form>
+  
+<!-- autocomplete -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+<!-- Ενεργοποίηση Select2 -->
+<script>
+  $(document).ready(function () {
+    $('#excluded_ids_skroutz, #excluded_ids_google').select2({
+      width: '100%',
+      placeholder: 'Επιλέξτε προϊόντα...',
+      allowClear: true
+    });
+  });
+</script>
+
 
   <hr />
 

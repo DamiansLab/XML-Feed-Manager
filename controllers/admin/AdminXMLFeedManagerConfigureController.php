@@ -25,16 +25,25 @@ class AdminXmlFeedManagerConfigureController extends ModuleAdminController
             Configuration::updateValue('XMLFEED_EXCLUDE_IDS', Tools::getValue('XMLFEED_EXCLUDE_IDS'));
             Configuration::updateValue('XMLFEED_CLEAN_HTML', (int)Tools::getValue('XMLFEED_CLEAN_HTML'));
             Configuration::updateValue('XMLFEED_FEED_FIELDS', implode(',', Tools::getValue('XMLFEED_FEED_FIELDS', [])));
-            $this->confirmations[] = 'Οι ρυθμίσεις αποθηκεύτηκαν.';
-        }
+			Configuration::updateValue(
+				'XMLFEEDMANAGER_EXCLUDED_IDS_SKROUTZ',
+				implode(',', Tools::getValue('excluded_ids_skroutz', []))
+			);
 
-        // Δημιουργία XML feed
-        if (Tools::isSubmit('generate_now')) {
-            include_once(_PS_MODULE_DIR_.'xmlfeedmanager/generate-skroutz-feed.php');
-            xmlfeed_generate_xml();
-            $this->confirmations[] = 'Το XML αρχείο δημιουργήθηκε επιτυχώς.';
-        }
-    }
+			Configuration::updateValue(
+				'XMLFEEDMANAGER_EXCLUDED_IDS_GOOGLE',
+				implode(',', Tools::getValue('excluded_ids_google', []))
+			);
+						$this->confirmations[] = 'Οι ρυθμίσεις αποθηκεύτηκαν.';
+					}
+
+					// Δημιουργία XML feed
+					if (Tools::isSubmit('generate_now')) {
+						include_once(_PS_MODULE_DIR_.'xmlfeedmanager/generate-skroutz-feed.php');
+						xmlfeed_generate_xml();
+						$this->confirmations[] = 'Το XML αρχείο δημιουργήθηκε επιτυχώς.';
+					}
+				}
 
     public function initContent()
     {
@@ -72,6 +81,25 @@ class AdminXmlFeedManagerConfigureController extends ModuleAdminController
         $all_fields = $this->getAvailableExportFields();
         $selected_fields = explode(',', Configuration::get('XMLFEED_FEED_FIELDS'));
 
+		// Λήψη αποθηκευμένων εξαιρούμενων IDs
+		$excluded_ids_skroutz = explode(',', Configuration::get('XMLFEEDMANAGER_EXCLUDED_IDS_SKROUTZ'));
+		$excluded_ids_google = explode(',', Configuration::get('XMLFEEDMANAGER_EXCLUDED_IDS_GOOGLE'));
+
+		// Λήψη προϊόντων για τα dropdowns
+		$product_list = Product::getProducts(
+			$this->context->language->id,
+			0, 0, 'name', 'asc', false, true
+		);
+
+		// Προετοιμασία επιλογών για select
+		$product_options = [];
+		foreach ($product_list as $product) {
+			$product_options[] = [
+				'id_product' => $product['id_product'],
+				'name' => $product['name']
+			];
+		}
+
         // Ανάθεση μεταβλητών στο Smarty για το template
         $this->context->smarty->assign([
             'categories_tree' => $tree->render(),
@@ -84,6 +112,9 @@ class AdminXmlFeedManagerConfigureController extends ModuleAdminController
             'google_feed_url' => $google_feed_url,
             'google_last_generated' => $google_last_generated,
             'google_last_size' => $google_last_size,
+			'product_options' => $product_options,
+			'excluded_ids_skroutz' => $excluded_ids_skroutz,
+			'excluded_ids_google' => $excluded_ids_google,
             'clean_html' => (int)Configuration::get('XMLFEED_CLEAN_HTML'),
         ]);
 

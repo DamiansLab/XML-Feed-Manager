@@ -11,7 +11,7 @@ function googlefeed_generate_xml() {
     $id_shop = (int)Configuration::get('PS_SHOP_DEFAULT');
 
     $selected_category_ids = explode(',', Configuration::get('XMLFEED_CATEGORY_IDS'));
-    $excluded_ids = array_map('intval', explode(',', Configuration::get('XMLFEED_EXCLUDE_IDS')));
+	$excluded_ids = array_map('intval', explode(',', Configuration::get('XMLFEEDMANAGER_EXCLUDED_IDS_GOOGLE')));
 
     $products = Db::getInstance()->executeS('
         SELECT p.id_product, pl.name, pl.link_rewrite, pl.description_short,
