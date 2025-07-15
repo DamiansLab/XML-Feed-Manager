@@ -1,61 +1,99 @@
-📘 Manual Χρήσης – XML Feed Manager
-🔍 Τι είναι το XML Feed Manager
-Το XML Feed Manager είναι ένα module για PrestaShop που δημιουργεί αυτόματα αρχεία XML συμβατά με τις απαιτήσεις των πλατφορμών Skroutz και Google Merchant. Στόχος του είναι να εξάγει μόνο τα ενεργά και διαθέσιμα προϊόντα του καταστήματος με τα βασικά εμπορικά και τεχνικά στοιχεία.
-⚙️ Λειτουργίες & Χαρακτηριστικά
-Υποστηριζόμενα XML Feeds:
-- Skroutz Feed (generate-skroutz-feed.php)
-- Google Merchant Feed (generate-google-feed.php)
-Περιλαμβανόμενα πεδία για κάθε προϊόν:
+Τρέχουσα έκδοση: 2.1.0
+
+# 📘 Manual Χρήσης – XML Feed Manager
+
+## 🔍 Τι είναι το XML Feed Manager
+
+Το **XML Feed Manager** είναι ένα module για PrestaShop που δημιουργεί αυτόματα αρχεία XML συμβατά με τις απαιτήσεις των πλατφορμών **Skroutz** και **Google Merchant**.  
+Στόχος του είναι να εξάγει **μόνο τα ενεργά και διαθέσιμα προϊόντα** του καταστήματος με τα απαραίτητα εμπορικά και τεχνικά στοιχεία.
+
+---
+
+## ⚙️ Λειτουργίες & Χαρακτηριστικά
+
+### Υποστηριζόμενα XML Feeds:
+- 🟦 Skroutz Feed (`generate-skroutz-feed.php`)
+- 🟥 Google Merchant Feed (`generate-google-feed.php`)
+
+### Περιλαμβανόμενα πεδία για κάθε προϊόν:
 - Όνομα προϊόντος
-- Περιγραφή (καθαρισμένη από HTML/SVG)
-- Τιμή (με φόρους)
-- Διαθεσιμότητα (stock)
-- Κατηγορία προϊόντος
-- Εικόνα
+- Σύντομη & Πλήρης περιγραφή (με δυνατότητα καθαρισμού HTML)
+- Τιμή (με ή χωρίς ΦΠΑ)
+- Διαθεσιμότητα (stock & λεκτική)
+- Κατηγορία (με πλήρη ιεραρχία)
+- Εικόνα προϊόντος
 - EAN
-- MPN (από το reference)
+- MPN / Reference
 - Βάρος
 - Ποσότητα αποθέματος
 - Σύνδεσμος προς σελίδα προϊόντος
-Δομή αρχείων:
-- /modules/xmlfeedmanager/generate-skroutz-feed.php → Δημιουργία Skroutz XML
-- /modules/xmlfeedmanager/generate-google-feed.php → Δημιουργία Google Merchant 
-🧠 Πώς λειτουργεί
-Κατά την εκτέλεση της λειτουργίας (χειροκίνητα ή μέσω cron), το module:
-- Φιλτράρει προϊόντα βάσει ρυθμίσεων (κατηγορίες, εξαιρέσεις)
-- Ελέγχει ενεργότητα και διαθεσιμότητα προϊόντων
-- Καθαρίζει HTML/SVG tags από τις περιγραφές
-- Δημιουργεί XML με σωστό encoding και tags
-- Αποθηκεύει το αρχείο XML τοπικά στον server
-Ονόματα functions:
-- skroutzfeed_generate_xml() → για Skroutz
-- xmlfeedmanager_generate_xml() → για Google Merchant
-🧪 Οδηγίες Χρήσης (για Διαχειριστές)
-Πρόσβαση στο Admin Panel:
-1. Modules > XML Feed Manager > Configure
-Ρυθμίσεις:
-- Επιλογή Κατηγοριών (multi-select)
-- Εξαίρεση Προϊόντων (IDs, με κόμμα)
-- Επιλογή πεδίων εξαγωγής
-- Καθαρισμός HTML περιγραφών
-- Επιλογή τύπου Feed (Skroutz ή Google Merchant)
-Κουμπιά στο Admin:
-- Δημιουργία Skroutz XML
-- Δημιουργία Google XML
-- Εμφάνιση τελευταίας δημιουργίας και μεγέθους αρχείου
-⏱️ Ρύθμιση Cron Job
-Για αυτόματη δημιουργία XML αρχείων με cron job:
+
+---
+
+## 🧠 Πώς Λειτουργεί
+
+Κατά την εκτέλεση (χειροκίνητα ή με cron), το module:
+
+- Φιλτράρει προϊόντα βάσει ρυθμίσεων:
+  - Κατηγορίες
+  - Εξαιρούμενα προϊόντα (με dropdown επιλογή)
+- Ελέγχει ενεργά & διαθέσιμα προϊόντα
+- Καθαρίζει HTML/SVG tags από τις περιγραφές (αν έχει ενεργοποιηθεί)
+- Δημιουργεί XML με σωστή κωδικοποίηση και format
+- Αποθηκεύει τα αρχεία XML τοπικά στον server
+
+### Ονόματα functions:
+- `xmlfeed_generate_xml()` → για Skroutz
+- `googlefeed_generate_xml()` → για Google Merchant
+
+---
+
+## 🧪 Οδηγίες Χρήσης (για Διαχειριστές)
+
+### Πρόσβαση στο Admin Panel:
+- Modules > XML Feed Manager > Configure
+
+### Ρυθμίσεις:
+- ✅ Επιλογή Κατηγοριών (multi-select tree)
+- ❌ Εξαίρεση Προϊόντων:
+  - μέσω **dropdown με αναζήτηση & πολλαπλή επιλογή**
+  - ξεχωριστά για **Skroutz** και **Google**
+- ✅ Επιλογή πεδίων εξαγωγής
+- ✅ Καθαρισμός HTML περιγραφών
+- ✅ Επιλογή τύπου Feed
+
+### Κουμπιά:
+- ▶ Δημιουργία Skroutz XML
+- ▶ Δημιουργία Google XML
+- 🕒 Εμφάνιση ημερομηνίας & μεγέθους τελευταίας δημιουργίας
+
+---
+
+## ⏱️ Ρύθμιση Cron Job
+
+Για αυτόματη δημιουργία XML αρχείων μέσω cron:
+
+```bash
 php /path/to/prestashop/modules/xmlfeedmanager/generate-skroutz-feed.php
 php /path/to/prestashop/modules/xmlfeedmanager/generate-google-feed.php
-Ενδεικτική ρύθμιση κάθε 2 λεπτά:
-*/2 * * * * php /var/www/html/modules/xmlfeedmanager/generate-skroutz-feed.php
-*/2 * * * * php /var/www/html/modules/xmlfeedmanager/generate-google-feed.php
+
+
 ✅ Τεχνικές Λεπτομέρειες
-- Απαιτεί PHP CLI
-- Αποθήκευση XML στο /feeds/
-- Encoding UTF-8
-- Google XML χρησιμοποιεί namespaces g:
+Απαιτεί PHP CLI
+
+Αποθηκεύει τα αρχεία XML στο:
+
+/modules/xmlfeedmanager/skroutz_export/
+
+/modules/xmlfeedmanager/google_export/
+
+Encoding: UTF-8
+
+Το Google XML χρησιμοποιεί namespaces g: κατάλληλα για το Merchant Center
+
 🧼 Καθαρισμός HTML Περιγραφών
-Η συνάρτηση cleanHtmlToSingleLine():
-- Αφαιρεί <img>, <svg>, <i>, εικονίδια
-- Διατηρεί καθαρό κείμενο σε μία γραμμή
+Αν η επιλογή είναι ενεργή, η συνάρτηση cleanHtmlToSingleLine():
+
+Αφαιρεί εικόνες (<img>), SVG, icons, tags
+
+Επιστρέφει καθαρό κείμενο σε 1 γραμμή για τις περιγραφές
