@@ -69,15 +69,6 @@
 
 ---
 
-## ⏱️ Ρύθμιση Cron Job
-
-Για αυτόματη δημιουργία XML αρχείων μέσω cron:
-
-```bash
-php /path/to/prestashop/modules/xmlfeedmanager/generate-skroutz-feed.php
-php /path/to/prestashop/modules/xmlfeedmanager/generate-google-feed.php
-
-
 ✅ Τεχνικές Λεπτομέρειες
 Απαιτεί PHP CLI
 
@@ -97,3 +88,13 @@ Encoding: UTF-8
 Αφαιρεί εικόνες (<img>), SVG, icons, tags
 
 Επιστρέφει καθαρό κείμενο σε 1 γραμμή για τις περιγραφές
+
+---
+
+## ⏱️ Ρύθμιση Cron Job
+
+Για αυτόματη δημιουργία XML αρχείων μέσω cron:
+
+```bash
+php /path/to/prestashop/modules/xmlfeedmanager/generate-skroutz-feed.php
+php /path/to/prestashop/modules/xmlfeedmanager/generate-google-feed.php
