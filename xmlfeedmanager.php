@@ -13,7 +13,7 @@ class xmlfeedmanager extends Module
     {
         $this->name = 'xmlfeedmanager';
         $this->tab = 'seo';
-        $this->version = '1.0.0';
+        $this->version = '2.1.0';
         $this->author = 'Damian';
         $this->need_instance = 0;
 
