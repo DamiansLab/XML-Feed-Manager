@@ -2,6 +2,15 @@
 
 Όλες οι σημαντικές αλλαγές για το module **XML Feed Manager** καταγράφονται εδώ.
 
+## [Unreleased]
+
+### Πρότυπο DamiansLab
+- Εφαρμογή του DamiansLab Module Standard: headers αρχείων, `index.php` guards, `author`/`author_uri`, `license.txt`, κοινό header/footer στη σελίδα διαχείρισης, `config.xml` από την κλάση.
+- Νέο `README.md` (English) και `README.el.md` (ελληνικό manual).
+- Τα `error_log()` αντικαταστάθηκαν από `PrestaShopLogger::addLog()`.
+
+---
+
 ## [2.1.0] - 2025-07-15
 
 ### ✨ Νέα Χαρακτηριστικά

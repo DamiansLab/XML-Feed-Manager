@@ -1,0 +1,58 @@
+/*
+ * XML Feed Manager - Generates XML product feeds for Skroutz and Google Merchant for PrestaShop.
+ * (c) 2025 DamiansLab (Ηλίας Δαμιανίδης) - https://damianslab.gr
+ *
+ * DamiansLab module chrome v1: the header and the footer shown on every back office page of a module.
+ * Copy this file unchanged to views/css/dl-chrome.css. A module only changes the three colours below,
+ * from its own stylesheet:  .dl-header, .dl-footer { --dl-primary: ...; --dl-primary-dark: ...; --dl-accent: ...; }
+ */
+.dl-header,
+.dl-footer {
+  --dl-primary: #0b3c8c;
+  --dl-primary-dark: #082c68;
+  --dl-accent: #f7c600;
+}
+
+/* ---- header: logo, module name and version on the left, one button on the right ---- */
+.dl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 18px 22px;
+  border-radius: 6px;
+  color: #fff;
+  background: linear-gradient(120deg, var(--dl-primary-dark), var(--dl-primary));
+  border-bottom: 4px solid var(--dl-accent);
+}
+.dl-header__title { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.dl-header__logo { flex: none; width: 56px; height: 56px; border-radius: 10px; background: #fff; }
+.dl-header h2 { margin: 0; font-size: 22px; color: #fff; }
+.dl-header h2 small { margin-left: 6px; font-size: 12px; color: rgba(255, 255, 255, .6); }
+.dl-header p { margin: 2px 0 0; color: rgba(255, 255, 255, .85); }
+.dl-header__button { flex: none; }
+
+/* ---- footer: signature, contact details and copyright ---- */
+.dl-footer {
+  margin-top: 24px;
+  padding: 16px 22px;
+  border-radius: 6px;
+  border: 1px solid #dfe5ef;
+  border-top: 4px solid var(--dl-accent);
+  background: #fff;
+  color: #55627e;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+.dl-footer a { color: var(--dl-primary); font-weight: 600; text-decoration: none; }
+.dl-footer a:hover { text-decoration: underline; }
+.dl-footer__main { font-size: 13px; color: #1d2a44; }
+.dl-footer__links a + a::before,
+.dl-footer__links span + a::before { content: "\00b7"; margin: 0 8px; color: #9aa7bd; font-weight: 400; }
+.dl-footer__legal { margin-top: 4px; color: #6b7894; }
+
+@media (max-width: 767px) {
+  .dl-header { flex-direction: column; align-items: flex-start; }
+}

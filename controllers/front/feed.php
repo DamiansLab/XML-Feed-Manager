@@ -1,5 +1,16 @@
 <?php
 /**
+ * XML Feed Manager - Generates XML product feeds for Skroutz and Google Merchant for PrestaShop.
+ *
+ * @author    DamiansLab <https://damianslab.gr>
+ * @copyright 2025 DamiansLab (Ηλίας Δαμιανίδης)
+ * @license   Proprietary, see license.txt (DamiansLab End User License Agreement)
+ */
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+/**
  * Frontend controller που εκθέτει το XML Feed
  */
 class xmlfeedmanagerModuleFrontController extends ModuleFrontController {
@@ -9,9 +20,12 @@ class xmlfeedmanagerModuleFrontController extends ModuleFrontController {
         // Ορισμός Content-Type για XML
         header('Content-Type: text/xml; charset=utf-8');
 
-        // Πλήρης διαδρομή προς το αρχείο XML
-        $xml_path = _PS_MODULE_DIR_ . 'xmlfeedmanager/skoutz_export/skroutz.xml';
-		$xml_path = _PS_MODULE_DIR_ . 'xmlfeedmanager/google_export/google.xml';
+        // Πλήρης διαδρομή προς το αρχείο XML: ?type=google για Google, αλλιώς Skroutz
+        if (Tools::getValue('type') === 'google') {
+            $xml_path = _PS_MODULE_DIR_ . 'xmlfeedmanager/google_export/google.xml';
+        } else {
+            $xml_path = _PS_MODULE_DIR_ . 'xmlfeedmanager/skroutz_export/skroutz.xml';
+        }
 
         // Αν υπάρχει, εμφανίζεται το περιεχόμενο του αρχείου XML
         if (file_exists($xml_path)) {

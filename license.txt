@@ -1,0 +1,82 @@
+XML FEED MANAGER - END USER LICENSE AGREEMENT (EULA)
+
+Copyright (c) 2025 DamiansLab (Ηλίας Δαμιανίδης). All rights reserved.
+https://damianslab.gr
+
+This End User License Agreement ("Agreement") is a legal agreement between you ("Licensee") and DamiansLab, Ηλίας Δαμιανίδης ("Licensor") for the PrestaShop module "XML Feed Manager" (technical name: xmlfeedmanager), including its source code, templates, scripts, styles, translations and documentation (together, the "Software").
+
+By installing or using the Software you accept this Agreement. If you do not accept it, do not install or use the Software.
+
+
+1. LICENSE GRANT
+
+The Software is licensed, not sold. The Licensor grants you a personal, non-exclusive, non-transferable, non-sublicensable license to install and use one copy of the Software on one PrestaShop installation (one production shop). One additional copy may be installed on a staging or development copy of that same shop, for testing only.
+
+Each additional production shop requires its own license.
+
+
+2. RESTRICTIONS
+
+You may not:
+
+a) copy, resell, redistribute, publish, share, rent, lease, lend or sublicense the Software, in whole or in part, to anyone else, including by uploading it to a public or private repository, marketplace or file-sharing service;
+
+b) modify, adapt, translate, decompile, disassemble, reverse engineer or create derivative works based on the Software, except as allowed by law despite this restriction, and except for (i) adding or editing translation files for your own shop and (ii) overriding the module templates through your own theme;
+
+c) remove, hide or alter any copyright notice, author name, license text or other proprietary marking contained in or displayed by the Software, including the "About" panel and the file headers;
+
+d) use the Software to provide a competing product or a service to third parties.
+
+Any attempt to do so ends your license automatically (see section 8).
+
+
+3. OWNERSHIP
+
+All title, copyright and other intellectual property rights in the Software remain the exclusive property of the Licensor. You acquire only the right to use the Software as stated in this Agreement.
+
+
+4. THIRD-PARTY COMPONENTS AND SERVICES
+
+The Software loads the Select2 library, version 4.0.13 (copyright Kevin Brown, Igor Vaynberg and contributors, MIT license), in the back office from the cdnjs content delivery network. It is not bundled with the Software, it remains under its own license and is not covered by the restrictions of this Agreement.
+
+The Software produces XML feed files that you submit to, or that are collected by, third-party services: Skroutz and Google Merchant Center. The Software also relies on the cdnjs content delivery network (operated by Cloudflare) to load Select2. The owners of these services are not affiliated with the Licensor. You need your own account with each service and must follow its owner's terms. Changes made by these services can affect how the Software works.
+
+
+5. NO WARRANTY
+
+To the maximum extent permitted by law, the Software is provided "AS IS" and "AS AVAILABLE", without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, accuracy and non-infringement. The Licensor does not warrant that the Software will meet your requirements, will be error-free or uninterrupted, or that what is produced through it will be accepted by third parties. You are responsible for checking the results before you rely on them.
+
+Test the Software on a staging copy before using it in production, and keep backups of your shop and database.
+
+
+6. LIMITATION OF LIABILITY
+
+To the maximum extent permitted by law, the Licensor is not liable for any indirect, incidental, special or consequential damages, or for loss of profits, revenue, data, business or goodwill, or for any loss caused by data or documents produced with the Software, arising from the use of or inability to use the Software, even if the Licensor was told such damage was possible.
+
+The total liability of the Licensor under this Agreement is limited to the price you paid for the license of the Software.
+
+Nothing in this Agreement excludes or limits any liability that cannot be excluded or limited under the law that applies to you.
+
+
+7. SUPPORT AND UPDATES
+
+Support is provided by DamiansLab through https://damianslab.gr/contact or iliaskdamianidis@gmail.com. Updates and upgrades of the Software are covered by this Agreement. The scope and duration of support and free updates are those stated when you obtained the license.
+
+
+8. TERMINATION
+
+This Agreement is effective until terminated. It terminates automatically, without notice, if you breach any of its terms. On termination you must stop using the Software and delete all copies of it. Sections 2, 3, 4, 5, 6 and 9 survive termination.
+
+
+9. GENERAL
+
+This Agreement is governed by the laws of Greece. The competent courts of Greece have jurisdiction, without affecting any mandatory consumer rights you may have in your country of residence. If a provision of this Agreement is invalid or unenforceable, the rest remains in force. This Agreement is the entire agreement between you and the Licensor about the Software.
+
+
+DamiansLab - Web Development & 3D Printing
+Ηλίας Δαμιανίδης
+Website:   https://damianslab.gr
+Contact:   https://damianslab.gr/contact
+Email:     iliaskdamianidis@gmail.com
+Instagram: https://instagram.com/damianslab
+GitHub:    https://github.com/DamiansLab

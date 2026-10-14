@@ -1,4 +1,11 @@
 <?php
+/**
+ * XML Feed Manager - Generates XML product feeds for Skroutz and Google Merchant for PrestaShop.
+ *
+ * @author    DamiansLab <https://damianslab.gr>
+ * @copyright 2025 DamiansLab (Ηλίας Δαμιανίδης)
+ * @license   Proprietary, see license.txt (DamiansLab End User License Agreement)
+ */
 
 require_once(dirname(__FILE__).'/../../config/config.inc.php');
 require_once(dirname(__FILE__).'/../../init.php');
@@ -193,13 +200,13 @@ function xmlfeed_generate_xml() {
             if ($gz_content !== false) {
                 file_put_contents($gz_file_path, $gz_content);
             } else {
-                error_log('Failed to gzip content for feed.');
+                PrestaShopLogger::addLog('Failed to gzip content for feed.', 3, null, 'xmlfeedmanager');
             }
         } else {
-            error_log('Failed to read XML content for feed compression.');
+            PrestaShopLogger::addLog('Failed to read XML content for feed compression.', 3, null, 'xmlfeedmanager');
         }
     } else {
-        error_log('gzencode function is not available. Cannot create gzipped XML feed.');
+        PrestaShopLogger::addLog('gzencode function is not available. Cannot create gzipped XML feed.', 3, null, 'xmlfeedmanager');
     }
 }
 

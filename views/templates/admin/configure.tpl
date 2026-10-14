@@ -1,3 +1,11 @@
+{**
+ * XML Feed Manager - Generates XML product feeds for Skroutz and Google Merchant for PrestaShop.
+ *
+ * @author    DamiansLab <https://damianslab.gr>
+ * @copyright 2025 DamiansLab (Ηλίας Δαμιανίδης)
+ * @license   Proprietary, see license.txt (DamiansLab End User License Agreement)
+ *}
+{$header nofilter}
 <!-- Πάνελ διαχείρισης ρυθμίσεων XML Feed Manager -->
 <div class="panel">
   <h3><i class="icon icon-list"></i> Ρυθμίσεις XML Feed Manager</h3>

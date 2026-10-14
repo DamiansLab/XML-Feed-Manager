@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-    <name>XMLFeedManager</name>
-    <displayName><![CDATA[XML Feed Manager]]></displayName>
-    <version>2.1.0</version>
-    <description><![CDATA[Δημιουργεί XML feed για συγχρονισμό με διάφορες online Πλατφόρμες]]></description>
-    <author><![CDATA[Damian]]></author>
-    <tab><![CDATA[seo]]></tab>
-    <is_configurable>1</is_configurable>
-    <need_instance>0</need_instance>
+	<name>xmlfeedmanager</name>
+	<displayName><![CDATA[XML Feed Manager]]></displayName>
+	<version><![CDATA[2.1.0]]></version>
+	<description><![CDATA[Δημιουργεί XML feed για συγχρονισμό με διάφορες online Πλατφόρμες]]></description>
+	<author><![CDATA[DamiansLab]]></author>
+	<tab><![CDATA[seo]]></tab>
+	<confirmUninstall><![CDATA[]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
 </module>

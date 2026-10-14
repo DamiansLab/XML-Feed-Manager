@@ -1,100 +1,58 @@
-Τρέχουσα έκδοση: 2.1.0
+# XML Feed Manager
 
-# 📘 Manual Χρήσης – XML Feed Manager
+**Author:** [DamiansLab](https://damianslab.gr) · Version 2.1.0 · PrestaShop 1.7 / 8 · Languages: Greek, English
 
-## 🔍 Τι είναι το XML Feed Manager
+Generates XML product feeds for **Skroutz** and **Google Merchant** from the active, available products of your shop. The full Greek manual is in [README.el.md](README.el.md).
 
-Το **XML Feed Manager** είναι ένα module για PrestaShop που δημιουργεί αυτόματα αρχεία XML συμβατά με τις απαιτήσεις των πλατφορμών **Skroutz** και **Google Merchant**.  
-Στόχος του είναι να εξάγει **μόνο τα ενεργά και διαθέσιμα προϊόντα** του καταστήματος με τα απαραίτητα εμπορικά και τεχνικά στοιχεία.
+## Features
 
----
+- Skroutz feed (`generate-skroutz-feed.php`) and Google Merchant feed (`generate-google-feed.php`)
+- Category selection and separate product exclusion lists for Skroutz and Google
+- Selectable export fields and optional HTML cleaning of descriptions
+- Manual generation from the back office or automatic generation by cron
 
-## ⚙️ Λειτουργίες & Χαρακτηριστικά
+## Usage
 
-### Υποστηριζόμενα XML Feeds:
-- 🟦 Skroutz Feed (`generate-skroutz-feed.php`)
-- 🟥 Google Merchant Feed (`generate-google-feed.php`)
+Back office: Modules > XML Feed Manager > Configure. Output files:
 
-### Περιλαμβανόμενα πεδία για κάθε προϊόν:
-- Όνομα προϊόντος
-- Σύντομη & Πλήρης περιγραφή (με δυνατότητα καθαρισμού HTML)
-- Τιμή (με ή χωρίς ΦΠΑ)
-- Διαθεσιμότητα (stock & λεκτική)
-- Κατηγορία (με πλήρη ιεραρχία)
-- Εικόνα προϊόντος
-- EAN
-- MPN / Reference
-- Βάρος
-- Ποσότητα αποθέματος
-- Σύνδεσμος προς σελίδα προϊόντος
+- `modules/xmlfeedmanager/skroutz_export/skroutz.xml`
+- `modules/xmlfeedmanager/google_export/google.xml`
 
----
-
-## 🧠 Πώς Λειτουργεί
-
-Κατά την εκτέλεση (χειροκίνητα ή με cron), το module:
-
-- Φιλτράρει προϊόντα βάσει ρυθμίσεων:
-  - Κατηγορίες
-  - Εξαιρούμενα προϊόντα (με dropdown επιλογή)
-- Ελέγχει ενεργά & διαθέσιμα προϊόντα
-- Καθαρίζει HTML/SVG tags από τις περιγραφές (αν έχει ενεργοποιηθεί)
-- Δημιουργεί XML με σωστή κωδικοποίηση και format
-- Αποθηκεύει τα αρχεία XML τοπικά στον server
-
-### Ονόματα functions:
-- `xmlfeed_generate_xml()` → για Skroutz
-- `googlefeed_generate_xml()` → για Google Merchant
-
----
-
-## 🧪 Οδηγίες Χρήσης (για Διαχειριστές)
-
-### Πρόσβαση στο Admin Panel:
-- Modules > XML Feed Manager > Configure
-
-### Ρυθμίσεις:
-- ✅ Επιλογή Κατηγοριών (multi-select tree)
-- ❌ Εξαίρεση Προϊόντων:
-  - μέσω **dropdown με αναζήτηση & πολλαπλή επιλογή**
-  - ξεχωριστά για **Skroutz** και **Google**
-- ✅ Επιλογή πεδίων εξαγωγής
-- ✅ Καθαρισμός HTML περιγραφών
-- ✅ Επιλογή τύπου Feed
-
-### Κουμπιά:
-- ▶ Δημιουργία Skroutz XML
-- ▶ Δημιουργία Google XML
-- 🕒 Εμφάνιση ημερομηνίας & μεγέθους τελευταίας δημιουργίας
-
----
-
-✅ Τεχνικές Λεπτομέρειες
-Απαιτεί PHP CLI
-
-Αποθηκεύει τα αρχεία XML στο:
-
-/modules/xmlfeedmanager/skroutz_export/
-
-/modules/xmlfeedmanager/google_export/
-
-Encoding: UTF-8
-
-Το Google XML χρησιμοποιεί namespaces g: κατάλληλα για το Merchant Center
-
-🧼 Καθαρισμός HTML Περιγραφών
-Αν η επιλογή είναι ενεργή, η συνάρτηση cleanHtmlToSingleLine():
-
-Αφαιρεί εικόνες (<img>), SVG, icons, tags
-
-Επιστρέφει καθαρό κείμενο σε 1 γραμμή για τις περιγραφές
-
----
-
-## ⏱️ Ρύθμιση Cron Job
-
-Για αυτόματη δημιουργία XML αρχείων μέσω cron:
+Cron:
 
 ```bash
 php /path/to/prestashop/modules/xmlfeedmanager/generate-skroutz-feed.php
 php /path/to/prestashop/modules/xmlfeedmanager/generate-google-feed.php
+```
+
+## Files
+
+```
+xmlfeedmanager/
+├── xmlfeedmanager.php
+├── config.xml
+├── license.txt
+├── README.md / README.el.md
+├── CHANGELOG.md
+├── logo.png
+├── generate-skroutz-feed.php
+├── generate-google-feed.php
+├── controllers/   views/   translations/
+```
+
+## Credits and license
+
+Licensed, not sold, under the DamiansLab End User License Agreement: see [license.txt](license.txt). One license covers one production shop; copying, redistribution and modification are not allowed.
+
+Select2 4.0.13 (Kevin Brown, Igor Vaynberg and contributors), MIT license, loaded from cdnjs and kept under its own license.
+
+## Support and contact
+
+**DamiansLab &mdash; Web Development & 3D Printing**
+Ηλίας Δαμιανίδης · Full stack developer
+
+- Website: <https://damianslab.gr>
+- Contact: <https://damianslab.gr/contact>
+- Email: <iliaskdamianidis@gmail.com>
+- Instagram: <https://instagram.com/damianslab>
+- GitHub: <https://github.com/DamiansLab>

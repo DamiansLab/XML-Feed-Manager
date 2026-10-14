@@ -1,5 +1,16 @@
 <?php
 /**
+ * XML Feed Manager - Generates XML product feeds for Skroutz and Google Merchant for PrestaShop.
+ *
+ * @author    DamiansLab <https://damianslab.gr>
+ * @copyright 2025 DamiansLab (Ηλίας Δαμιανίδης)
+ * @license   Proprietary, see license.txt (DamiansLab End User License Agreement)
+ */
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
+/**
  * Admin Controller για τη διαχείριση του XML Feed Manager
  */
 class AdminXmlFeedManagerConfigureController extends ModuleAdminController
@@ -119,13 +130,20 @@ class AdminXmlFeedManagerConfigureController extends ModuleAdminController
         ]);
 
         // Απόδοση template
-        $this->content = $this->context->smarty->fetch(_PS_MODULE_DIR_.'xmlfeedmanager/views/templates/admin/configure.tpl');
+        $this->context->smarty->assign('header', $this->module->renderChrome('header', array(
+            'dl_tagline' => $this->module->l('XML feeds for Skroutz and Google Merchant'),
+        )));
+        $this->content = $this->context->smarty->fetch(_PS_MODULE_DIR_.'xmlfeedmanager/views/templates/admin/configure.tpl')
+            . $this->module->renderChrome('footer', array(
+                'dl_disclaimer' => $this->module->l('It is an independent integration and is not affiliated with Skroutz or Google.'),
+            ));
         $this->context->smarty->assign('content', $this->content);
     }
 
     public function setMedia($isNewTheme = false)
     {
         parent::setMedia();
+        $this->addCSS($this->module->getPathUri().'views/css/dl-chrome.css');
         $this->addJS(_PS_JS_DIR_.'jquery/plugins/treeview-categories/jquery.treeview-categories.js');
         $this->addCSS(_PS_JS_DIR_.'jquery/plugins/treeview-categories/jquery.treeview-categories.css');
     }
