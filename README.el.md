@@ -131,6 +131,6 @@ Select2 4.0.13 (Kevin Brown, Igor Vaynberg και συντελεστές), άδ�
 
 - Website: <https://damianslab.gr>
 - Contact: <https://damianslab.gr/contact>
-- Email: <iliaskdamianidis@gmail.com>
+- Email: <info@damianslab.gr>
 - Instagram: <https://instagram.com/damianslab>
 - GitHub: <https://github.com/DamiansLab>

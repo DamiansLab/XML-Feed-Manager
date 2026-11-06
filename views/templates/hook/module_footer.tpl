@@ -15,7 +15,7 @@
   <div class="dl-footer__links">
     <a href="https://damianslab.gr" target="_blank" rel="noopener">{l s='Website' mod='xmlfeedmanager'}</a>
     <a href="https://damianslab.gr/contact" target="_blank" rel="noopener">{l s='Contact' mod='xmlfeedmanager'}</a>
-    <a href="mailto:iliaskdamianidis@gmail.com">iliaskdamianidis@gmail.com</a>
+    <a href="mailto:info@damianslab.gr">info@damianslab.gr</a>
     <a href="https://instagram.com/damianslab" target="_blank" rel="noopener">Instagram</a>
     <a href="https://github.com/DamiansLab" target="_blank" rel="noopener">GitHub</a>
     {foreach from=$dl_links item=link}

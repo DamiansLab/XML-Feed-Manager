@@ -60,7 +60,7 @@ Nothing in this Agreement excludes or limits any liability that cannot be exclud
 
 7. SUPPORT AND UPDATES
 
-Support is provided by DamiansLab through https://damianslab.gr/contact or iliaskdamianidis@gmail.com. Updates and upgrades of the Software are covered by this Agreement. The scope and duration of support and free updates are those stated when you obtained the license.
+Support is provided by DamiansLab through https://damianslab.gr/contact or info@damianslab.gr. Updates and upgrades of the Software are covered by this Agreement. The scope and duration of support and free updates are those stated when you obtained the license.
 
 
 8. TERMINATION
@@ -77,6 +77,6 @@ DamiansLab - Web Development & 3D Printing
 Ηλίας Δαμιανίδης
 Website:   https://damianslab.gr
 Contact:   https://damianslab.gr/contact
-Email:     iliaskdamianidis@gmail.com
+Email:     info@damianslab.gr
 Instagram: https://instagram.com/damianslab
 GitHub:    https://github.com/DamiansLab
